@@ -20,8 +20,6 @@ dp = Dispatcher()
 dp.include_router(handlers.router)
 
 
-
-
 async def process_event(event):
 
     update = types.Update.model_validate(json.loads(event['body']), context={"bot": bot})

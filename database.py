@@ -42,24 +42,7 @@ def execute_select_query(pool, query, **kwargs):
             prepared_query, _format_kwargs(kwargs), commit_tx=True
         )
         return result_sets[0].rows
-
     return pool.retry_operation_sync(callee)    
 
 # Зададим настройки базы данных 
 pool = get_ydb_pool(YDB_ENDPOINT, YDB_DATABASE)
-
-
-# Структура квиза
-quiz_data = [
-    {
-        'question': 'Что такое Python?',
-        'options': ['Язык программирования', 'Тип данных', 'Музыкальный инструмент', 'Змея на английском'],
-        'correct_option': 0
-    },
-    {
-        'question': 'Какой тип данных используется для хранения целых чисел?',
-        'options': ['int', 'float', 'str', 'natural'],
-        'correct_option': 0
-    },
-    # Добавьте другие вопросы
-]
